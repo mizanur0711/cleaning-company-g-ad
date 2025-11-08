@@ -5,8 +5,8 @@ import logo from './assets/file.svg';
 const content = {
   company: "شركة ديسمبر للتنظيف",
   tagline: "خدمات تنظيف احترافية",
-  phone: "+96923008",
-  whatsapp: "+67683420",
+  phone: "+96567683420",
+  whatsapp: "+96567683420",
   hero: {
     title: "حوّل مساحتك مع خدمات التنظيف الاحترافية",
     subtitle: "خدمات تنظيف عالية الجودة يقدمها عمال ذكور ذوو خبرة",
@@ -90,8 +90,8 @@ const content = {
 const contentBackup = {
   company: "December Cleaning Company",
   tagline: "Professional Cleaning Services",
-  phone: "+9696923008",
-  whatsapp: "+9667683420",
+  phone: "+96567683420",
+  whatsapp: "+96567683420",
   hero: {
     title: "Transform Your Space with Professional Cleaning",
     subtitle: "Quality cleaning services delivered by experienced male professionals",
@@ -219,7 +219,6 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              {/* Company logo image (imported from src/assets) */}
               <img src={logo} alt={content.company} className="w-20 h-20 object-contain" />
               <h1 className="text-2xl font-bold text-gray-900">{content.company}</h1>
             </div>
