@@ -5,8 +5,8 @@ import logo from './assets/file.svg';
 const content = {
   company: "شركة ديسمبر للتنظيف",
   tagline: "خدمات تنظيف احترافية",
-  phone: "+9696923008",
-  whatsapp: "+9667683420",
+  phone: "+96923008",
+  whatsapp: "+67683420",
   hero: {
     title: "حوّل مساحتك مع خدمات التنظيف الاحترافية",
     subtitle: "خدمات تنظيف عالية الجودة يقدمها عمال ذكور ذوو خبرة",
