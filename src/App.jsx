@@ -1,173 +1,199 @@
 import React, { useState } from 'react';
 import { Phone, MessageCircle, Sparkles, Home, Building2, Waves, Sofa, Mountain, Factory } from 'lucide-react';
 import './index.css';
-import logo from './assets/file.svg';
+import logo from './assets/logo.png';
+
 const content = {
-  company: "شركة ديسمبر للتنظيف",
+  company: "شركة الدليل الوطنية للتنظيف",
   tagline: "خدمات تنظيف احترافية",
-  phone: "+96567683420",
-  whatsapp: "+96567683420",
+  phone: "+965 50104485",
+  whatsapp: "+965 50104485",
   hero: {
-    title: "حوّل مساحتك مع خدمات التنظيف الاحترافية",
-    subtitle: "خدمات تنظيف عالية الجودة يقدمها عمال ذكور ذوو خبرة",
+    title: "حوّل منزلك مع شركة الدليل الوطنية للتنظيف",
+    subtitle: "خدمات تنظيف عالية الجودة يقدمها فريق محترف ذو خبرة",
     cta: "احصل على عرض مجاني"
   },
   services: [
     {
       id: 1,
-      title: "تنظيف السجاد والموكيت",
-      description: "تنظيف عميق لجميع أنواع السجاد والموكيت",
-      icon: "sparkles"
+      title: "تنظيف المطبخ",
+      description: "تنظيف شامل للمطابخ",
+      icon: "home"
     },
     {
       id: 2,
-      title: "تنظيف الأثاث",
-      description: "تنظيف احترافي لجميع أنواع الأثاث",
+      title: "تنظيف الأثاث والكنب",
+      description: "تنظيف احترافي للكنب والأثاث",
       icon: "sofa"
     },
     {
       id: 3,
-      title: "تنظيف الأرضيات والممرات",
-      description: "أرضيات وممرات وسلالم نظيفة تماماً",
-      icon: "building"
+      title: "تنظيف المجلس",
+      description: "تنظيف مخصص لغرف استقبال الضيوف",
+      icon: "home"
     },
     {
       id: 4,
-      title: "تنظيف المطبخ والحمام",
-      description: "تنظيف شامل لجميع أنواع المطابخ والحمامات",
-      icon: "home"
+      title: "تنظيف المراتب",
+      description: "تنظيف صحي وآمن للمراتب",
+      icon: "sofa"
     },
     {
       id: 5,
-      title: "تنظيف حمامات السباحة",
-      description: "تنظيف احترافي لجميع أحجام حمامات السباحة",
-      icon: "waves"
+      title: "تنظيف المكاتب",
+      description: "تنظيف احترافي للمكاتب",
+      icon: "building"
     },
     {
       id: 6,
-      title: "تنظيف كامل للشقق",
-      description: "خدمة تنظيف كاملة للشقق السكنية",
-      icon: "home"
+      title: "تنظيف بالشامبو وغسيل السجاد",
+      description: "تنظيف عميق للسجاد والموكيت باستخدام الشامبو",
+      icon: "sparkles"
     },
     {
       id: 7,
-      title: "تنظيف المباني",
-      description: "تنظيف شامل للمباني بأكملها",
-      icon: "building"
+      title: "تنظيف الستائر",
+      description: "تنظيف دقيق ولطيف للستائر",
+      icon: "sparkles"
     },
     {
       id: 8,
-      title: "تنظيف الشاليهات",
-      description: "خدمات تنظيف كاملة للشاليهات",
-      icon: "mountain"
+      title: "تنظيف الشقق",
+      description: "خدمة تنظيف متكاملة للشقق",
+      icon: "home"
     },
     {
       id: 9,
-      title: "تنظيف المكاتب والشركات",
-      description: "تنظيف احترافي للمكاتب والشركات",
-      icon: "building"
+      title: "تنظيف الحمامات",
+      description: "تنظيف عميق وتعقيم شامل للحمامات",
+      icon: "waves"
     },
     {
       id: 10,
-      title: "تنظيف المباني الزراعية",
-      description: "تنظيف متخصص للمباني الزراعية",
-      icon: "factory"
+      title: "تنظيف المباني",
+      description: "تنظيف كامل وشامل للمباني",
+      icon: "building"
     },
     {
       id: 11,
-      title: "تنظيف الفلل الخاصة",
-      description: "خدمات تنظيف فاخرة للفلل الخاصة",
+      title: "تنظيف المنزل بالكامل",
+      description: "تنظيف شامل للمنزل من الأعلى إلى الأسفل",
       icon: "home"
+    },
+    {
+      id: 12,
+      title: "تلميع الرخام والسيراميك",
+      description: "استعادة لمعان الرخام والسيراميك",
+      icon: "sparkles"
+    },
+    {
+      id: 13,
+      title: "مكافحة الحشرات",
+      description: "خدمات مكافحة الحشرات العامة",
+      icon: "factory"
     }
   ],
   about: {
-    title: "عن شركة ديسمبر للتنظيف",
-    description: "نحن ملتزمون بتقديم خدمات تنظيف استثنائية للمساحات السكنية والتجارية والمتخصصة. يستخدم فريقنا الاحترافي من العمال الذكور ذوي الخبرة أفضل المعدات لضمان نظافة كل زاوية. مع الخبرة والموثوقية والانتباه للتفاصيل، يقدم فريقنا الذكوري نتائج متميزة لجميع احتياجاتك في التنظيف."
+    title: "نبذة عن شركة الدليل الوطنية للتنظيف",
+    description: "نحن ملتزمون بتقديم خدمات تنظيف ممتازة للمنازل والمكاتب والمساحات المتخصصة. يستخدم فريقنا المحترف معدات عالية الجودة لضمان نظافة كل زاوية. بخبرتنا وموثوقيتنا واهتمامنا بالتفاصيل، نقدم نتائج مميزة تلبي جميع احتياجاتك في التنظيف."
   }
 };
 
 
+
 const contentBackup = {
-  company: "December Cleaning Company",
+  company: "Al-Daleel National Cleaning Company",
   tagline: "Professional Cleaning Services",
-  phone: "+96567683420",
-  whatsapp: "+96567683420",
+  phone: "+965 50104485",
+  whatsapp: "+965 50104485",
   hero: {
-    title: "Transform Your Space with Professional Cleaning",
+    title: "Transform Your Home with Al-Daleel National Cleaning Company",
     subtitle: "Quality cleaning services delivered by experienced male professionals",
     cta: "Get a Free Quote"
   },
   services: [
     {
       id: 1,
-      title: "Carpet & Rug Cleaning",
-      description: "Deep cleaning for all types of carpets and rugs",
-      icon: "sparkles"
+      title: "Kitchen Cleaning",
+      description: "Thorough cleaning for kitchens",
+      icon: "home"
     },
     {
       id: 2,
-      title: "Furniture Cleaning",
-      description: "Professional cleaning for all kinds of furniture",
+      title: "Furniture & Sofa Cleaning",
+      description: "Professional cleaning for sofas and furniture",
       icon: "sofa"
     },
     {
       id: 3,
-      title: "Floor & Corridor Cleaning",
-      description: "Spotless floors, corridors and stairs",
-      icon: "building"
+      title: "Majlis Cleaning",
+      description: "Specialized cleaning for guest sitting areas",
+      icon: "home"
     },
     {
       id: 4,
-      title: "Kitchen & Bathroom",
-      description: "Thorough cleaning of all types of kitchens and bathrooms",
-      icon: "home"
+      title: "Mattress Cleaning",
+      description: "Hygienic cleaning for mattresses",
+      icon: "sofa"
     },
     {
       id: 5,
-      title: "Swimming Pool Cleaning",
-      description: "Professional cleaning for pools of all sizes",
-      icon: "waves"
+      title: "Office Cleaning",
+      description: "Professional cleaning for offices",
+      icon: "building"
     },
     {
       id: 6,
-      title: "Complete Apartment Cleaning",
-      description: "Full service cleaning for residential apartments",
-      icon: "home"
+      title: "Shampoo Cleaning & Carpet Washing",
+      description: "Deep cleaning for carpets and rugs with shampoo",
+      icon: "sparkles"
     },
     {
       id: 7,
+      title: "Curtain Cleaning",
+      description: "Delicate cleaning for curtains",
+      icon: "sparkles"
+    },
+    {
+      id: 8,
+      title: "Apartment Cleaning",
+      description: "Full service cleaning for apartments",
+      icon: "home"
+    },
+    {
+      id: 9,
+      title: "Bathroom Cleaning",
+      description: "Deep cleaning and sanitization for bathrooms",
+      icon: "waves"
+    },
+    {
+      id: 10,
       title: "Building Cleaning",
       description: "Comprehensive cleaning for entire buildings",
       icon: "building"
     },
     {
-      id: 8,
-      title: "Chalet Cleaning",
-      description: "Complete cleaning services for chalets",
-      icon: "mountain"
-    },
-    {
-      id: 9,
-      title: "Office & Company Cleaning",
-      description: "Professional cleaning for offices and companies",
-      icon: "building"
-    },
-    {
-      id: 10,
-      title: "Farm Building Cleaning",
-      description: "Specialized cleaning for farm buildings",
-      icon: "factory"
-    },
-    {
       id: 11,
-      title: "Private Villa Cleaning",
-      description: "Luxury cleaning services for private villas",
+      title: "Full House Cleaning",
+      description: "Complete house service from top to bottom",
       icon: "home"
+    },
+    {
+      id: 12,
+      title: "Marble & Tile Polishing",
+      description: "Restoring shine to marble and tiles",
+      icon: "sparkles"
+    },
+    {
+      id: 13,
+      title: "Pest & Anti-Insect Treatment",
+      description: "General pest control services",
+      icon: "factory"
     }
   ],
   about: {
-    title: "About December Cleaning Company",
-    description: "We are dedicated to providing exceptional cleaning services for residential, commercial, and specialized spaces. Our professional team of experienced male workers uses top-quality equipment to ensure every corner shines. With expertise, reliability, and attention to detail, our male workforce delivers outstanding results for all your cleaning needs."
+    title: "About Al-Daleel National Cleaning Company",
+    description: "We are dedicated to providing exceptional cleaning services for residential, commercial, and specialized spaces. Our professional team uses top-quality equipment to ensure every corner shines. With expertise, reliability, and attention to detail, we deliver outstanding results for all your cleaning needs."
   }
 };
 
@@ -189,7 +215,8 @@ function App() {
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/${content.whatsapp}`, '_blank');
+    const phoneNumber = content.whatsapp.replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${phoneNumber}`, '_blank');
   };
 
   return (
@@ -254,13 +281,14 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">Comprehensive cleaning solutions for every need</p>
+            <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm">What We Do</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Our Services</h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {content.services.map((service) => {
               const IconComponent = iconMap[service.icon] || Sparkles;
@@ -269,19 +297,20 @@ function App() {
                   key={service.id}
                   onMouseEnter={() => setHoveredService(service.id)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className={`bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 cursor-pointer ${
-                    hoveredService === service.id ? 'transform -translate-y-2 shadow-2xl' : ''
-                  }`}
+                  className={`group bg-white rounded-2xl p-8 transition-all duration-300 cursor-pointer border border-gray-100 relative overflow-hidden ${hoveredService === service.id ? 'shadow-2xl -translate-y-2 border-blue-500/30' : 'shadow-sm hover:shadow-md'
+                    }`}
                 >
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors ${
-                    hoveredService === service.id ? 'bg-blue-600' : 'bg-blue-100'
-                  }`}>
-                    <IconComponent className={`w-8 h-8 ${
-                      hoveredService === service.id ? 'text-white' : 'text-blue-600'
-                    }`} />
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-transform duration-500 ${hoveredService === service.id ? 'scale-150 bg-blue-100' : 'scale-100'
+                    }`}></div>
+
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300 ${hoveredService === service.id ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30' : 'bg-white text-blue-600 border border-blue-100 shadow-sm'
+                      }`}>
+                      <IconComponent className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
                 </div>
               );
             })}
@@ -290,31 +319,46 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">{content.about.title}</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {content.about.description}
-              </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="bg-white p-6 rounded-xl shadow">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
-                  <div className="text-gray-600">Happy Clients</div>
-                </div>
-                <div className="bg-white p-6 rounded-xl shadow">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                  <div className="text-gray-600">Support</div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full opacity-50 blur-xl"></div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-50 rounded-full opacity-50 blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-10 text-white shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                <Sparkles className="w-12 h-12 mb-6 text-blue-200" />
+                <h3 className="text-2xl font-bold mb-4">Why Choose Us?</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full"></div>
+                    <span>Professional & Experienced Team</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full"></div>
+                    <span>Top Quality Equipment</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full"></div>
+                    <span>100% Satisfaction Guaranteed</span>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=800&h=600&fit=crop"
-                alt="Professional male cleaning worker"
-                className="w-full h-full object-cover"
-              />
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">{content.about.title}</h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                {content.about.description}
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
+                  <div className="text-gray-600 font-medium">Happy Clients</div>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                  <div className="text-gray-600 font-medium">Support</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -345,11 +389,11 @@ function App() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Professional Team</h2>
             <p className="text-xl text-gray-600">Experienced male professionals dedicated to excellence</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <img
-                src="https://images.unsplash.com/photo-1632927063333-df848f5f916a?w=600&h=800&fit=crop"
+                src="https://images.unsplash.com/photo-1482449609509-eae2a7ea42b7?w=600&h=800&fit=crop"
                 alt="Professional cleaning worker"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -360,10 +404,10 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <img
-                src="https://images.unsplash.com/photo-1642505172378-a6f5e5b15580?w=600&h=800&fit=crop"
+                src="https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?w=600&h=800&fit=crop"
                 alt="Experienced cleaning professional"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -374,10 +418,10 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <img 
-                src="https://images.unsplash.com/photo-1742483359033-13315b247c74?w=600&h=800&fit=crop"
+              <img
+                src="https://images.unsplash.com/photo-1581578949510-fa7315c4c350?w=600&h=800&fit=crop"
                 alt="Reliable cleaning worker"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -393,34 +437,35 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 text-white pt-16 pb-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-6 h-6" />
-                <h3 className="text-xl font-bold">{content.company}</h3>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt={content.company} className="w-16 h-16 object-contain bg-white rounded-full p-1" />
+              <div>
+                <h3 className="text-2xl font-bold">{content.company}</h3>
+                <p className="text-gray-400 text-sm">Excellence in every detail</p>
               </div>
-              <p className="text-gray-400">Professional cleaning services you can trust</p>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li><a href="#services" className="text-gray-400 hover:text-white transition">Services</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                <li><a href="#privacy" className="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Phone: {content.phone}</li>
-                <li>WhatsApp: {content.whatsapp}</li>
-              </ul>
+            <div className="flex gap-4">
+              <button onClick={handleWhatsApp} className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 font-medium">
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </button>
+              <button onClick={handleCall} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition flex items-center gap-2 font-medium">
+                <Phone className="w-5 h-5" />
+                Call Now
+              </button>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 {content.company}. All rights reserved.</p>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+            <p>&copy; {new Date().getFullYear()} {content.company}. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#services" className="hover:text-white transition">Services</a>
+              <a href="#about" className="hover:text-white transition">About</a>
+              <a href="#" className="hover:text-white transition">Privacy</a>
+            </div>
           </div>
         </div>
       </footer>
