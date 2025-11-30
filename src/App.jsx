@@ -211,7 +211,12 @@ function App() {
   const [hoveredService, setHoveredService] = useState(null);
 
   const handleCall = () => {
-    window.location.href = `tel:${content.phone}`;
+    const url = `tel:${content.phone}`;
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion(url);
+    } else {
+      window.location.href = url;
+    }
   };
 
   const handleWhatsApp = () => {
