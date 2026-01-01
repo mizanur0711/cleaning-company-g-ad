@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Phone, MessageCircle, Sparkles, Home, Building2, Waves, Sofa, Mountain, Factory } from 'lucide-react';
 import './index.css';
 import logo from './assets/file.svg';
+import img1 from './assets/1.jpeg';
+import img2 from './assets/2.jpeg';
+import img3 from './assets/3.jpeg';
 const content = {
   company: "شركة ديسمبر للتنظيف",
   tagline: "خدمات تنظيف احترافية",
@@ -260,7 +263,7 @@ function App() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
             <p className="text-xl text-gray-600">Comprehensive cleaning solutions for every need</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {content.services.map((service) => {
               const IconComponent = iconMap[service.icon] || Sparkles;
@@ -269,16 +272,13 @@ function App() {
                   key={service.id}
                   onMouseEnter={() => setHoveredService(service.id)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className={`bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 cursor-pointer ${
-                    hoveredService === service.id ? 'transform -translate-y-2 shadow-2xl' : ''
-                  }`}
+                  className={`bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 cursor-pointer ${hoveredService === service.id ? 'transform -translate-y-2 shadow-2xl' : ''
+                    }`}
                 >
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors ${
-                    hoveredService === service.id ? 'bg-blue-600' : 'bg-blue-100'
-                  }`}>
-                    <IconComponent className={`w-8 h-8 ${
-                      hoveredService === service.id ? 'text-white' : 'text-blue-600'
-                    }`} />
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 transition-colors ${hoveredService === service.id ? 'bg-blue-600' : 'bg-blue-100'
+                    }`}>
+                    <IconComponent className={`w-8 h-8 ${hoveredService === service.id ? 'text-white' : 'text-blue-600'
+                      }`} />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
@@ -320,6 +320,62 @@ function App() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm">Our Portfolio</span>
+            <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Our Recent Work</h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">See the difference our professional cleaning services make in real homes and offices.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative h-96 rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+              <img
+                src={img1}
+                alt="Cleaning Work Sample 1"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-2xl font-bold mb-2">Deep Cleaning</h3>
+                  <p className="text-gray-200">Restoring beauty to your space</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative h-96 rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+              <img
+                src={img2}
+                alt="Cleaning Work Sample 2"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-2xl font-bold mb-2">Detailed Attention</h3>
+                  <p className="text-gray-200">Every corner shines</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative h-96 rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+              <img
+                src={img3}
+                alt="Cleaning Work Sample 3"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-2xl font-bold mb-2">Perfect Results</h3>
+                  <p className="text-gray-200">Satisfaction guaranteed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -345,11 +401,11 @@ function App() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Professional Team</h2>
             <p className="text-xl text-gray-600">Experienced male professionals dedicated to excellence</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <img
-                src="https://images.unsplash.com/photo-1632927063333-df848f5f916a?w=600&h=800&fit=crop"
+                src="https://images.unsplash.com/photo-1482449609509-eae2a7ea42b7?w=600&h=800&fit=crop"
                 alt="Professional cleaning worker"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -360,10 +416,10 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
               <img
-                src="https://images.unsplash.com/photo-1642505172378-a6f5e5b15580?w=600&h=800&fit=crop"
+                src="https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?w=600&h=800&fit=crop"
                 alt="Experienced cleaning professional"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -374,10 +430,10 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <img 
-                src="https://images.unsplash.com/photo-1742483359033-13315b247c74?w=600&h=800&fit=crop"
+              <img
+                src="https://images.unsplash.com/photo-1581578949510-fa7315c4c350?w=600&h=800&fit=crop"
                 alt="Reliable cleaning worker"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -391,6 +447,7 @@ function App() {
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
